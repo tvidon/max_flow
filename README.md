@@ -1,2 +1,3 @@
 # max_flow
-Max flow calculator
+
+Java max flow calculator using the Ford-Fulkerson algorithm.
