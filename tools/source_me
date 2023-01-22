@@ -1,0 +1,4 @@
+#!/bin/bash
+export project_root=$(pwd)
+export CLASSPATH=$project_root/src:$project_root/bin
+alias compile='bash $project_root/tools/compile'

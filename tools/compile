@@ -1,0 +1,2 @@
+#!/bin/bash
+javac $project_root/src/* -d $project_root/bin
