@@ -36,6 +36,7 @@ public class Edge{
 
     /**
      * Setter for max capacity
+     * @param max max capacity
      */
     public void setMax(int max){
         if (max > 0){
@@ -46,13 +47,15 @@ public class Edge{
         }
     }
     /**
-     * Getter for max capacity (int)
+     * Getter for max capacity
+     * @return max capacity (int)
      */
     public int getMax(){
         return max;
     }
     /**
      * Setter for used capacity
+     * @param used used capacity
      */
     public void setUsed(int used){
         if (0 <= used && used <= max){
@@ -63,14 +66,16 @@ public class Edge{
         }
     }
     /**
-     * Getter for used capacity (int)
+     * Getter for used capacity
+     * @return used capacity (int)
      */
     public int getUsed(){
         return used;
     }
 
     /**
-     * Finds and returns residual capacity (max-used) (int)
+     * Finds and returns residual capacity (max-used)
+     * @return residual capacity (int)
      */
     public int findResidual(){
         return max-used;

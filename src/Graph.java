@@ -31,9 +31,9 @@ public class Graph{
 
     /**
      * Add an edge to the graph
-     * @param startNodeIndex index of the starting node (int)
-     * @param endNodeIndex index of the ending node (int)
-     * @param max maximum capacity of the edge (int)
+     * @param startNodeIndex index of the starting node
+     * @param endNodeIndex index of the ending node
+     * @param max maximum capacity of the edge
      */
     public void addEdge(int startNodeIndex, int endNodeIndex, int max){
         mat.get(startNodeIndex).set(endNodeIndex, new Edge(max));
