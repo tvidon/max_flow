@@ -1,6 +1,6 @@
 # max_flow
 
-Java max flow calculator using the Ford-Fulkerson algorithm.
+Java max flow finder using the Ford-Fulkerson algorithm.
 
 ## build instructions (linux)
 
