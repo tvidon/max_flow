@@ -9,7 +9,7 @@ public class Main{
         System.out.println("2x2 with edge from 0 to 1 with a capacity of 10");
         System.out.println(g);
         // increase to 3x3
-        g.addNode(new Node());
+        g.addNode();
         System.out.println("increase to 3x3");
         System.out.println(g);
         // test ff

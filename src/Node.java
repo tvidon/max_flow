@@ -14,20 +14,17 @@ public class Node{
      */
     private boolean successor;
     /**
-     * Number of nodes
-     */
-    private static int count;
-    /**
      * Index in the adjacency matrix
      */
     private int index;
 
 
     /**
-     * Default constructor
+     * Constructor
+     * @param index index of the node in the adjacency matrix
      */
-    public Node(){
-        index = count++;
+    public Node(int index){
+        this.index = index;
     };
 
     /**
@@ -57,13 +54,6 @@ public class Node{
      */
     public boolean getSuccessor(){
         return successor;
-    }
-    /**
-     * Resets the node counter
-     * Use when creating a new graph
-     */
-    public static void resetCount(){
-        count = 0;
     }
     /**
      * Getter for the index of this node in the adjacency matrix

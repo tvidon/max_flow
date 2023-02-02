@@ -21,9 +21,7 @@ public class Graph{
     /**
      * Default constructor
      */
-    public Graph(){
-        Node.resetCount();
-    };
+    public Graph(){};
     /**
      * Contructor for when the number of nodes is already known
      * @param size number of nodes in the graph
@@ -31,13 +29,12 @@ public class Graph{
     public Graph(int size){
         mat = new ArrayList<>(size);
         nodes = new ArrayList<>(size);
-        Node.resetCount();
         for (int i = 0; i < size; i++){
             mat.add(new ArrayList<>(size));
             for (int j = 0; j < size; j++){
                 mat.get(i).add(null);
             }
-            nodes.add(new Node());
+            nodes.add(new Node(i));
         }
     };
 
@@ -53,9 +50,8 @@ public class Graph{
 
     /**
      * Add a node to the graph
-     * @param node node to add
      */
-    public void addNode(Node node){
+    public void addNode(){
         int size = mat.size();
         // resize the already existing columns
         for (int i = 0; i < size; i++){
@@ -67,7 +63,7 @@ public class Graph{
             mat.get(size).add(null);
         }
         // add the node
-        nodes.add(node);
+        nodes.add(new Node(size));
     }
 
     @Override
