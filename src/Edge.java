@@ -23,7 +23,7 @@ public class Edge{
     };
     /**
      * Contructor for when the max capacity is already known
-     * @param max maximum capacity of the edge (int)
+     * @param max maximum capacity of the edge
      */
     public Edge(int max){
         if (max > 0){
@@ -48,7 +48,7 @@ public class Edge{
     }
     /**
      * Getter for max capacity
-     * @return max capacity (int)
+     * @return max capacity
      */
     public int getMax(){
         return max;
@@ -67,7 +67,7 @@ public class Edge{
     }
     /**
      * Getter for used capacity
-     * @return used capacity (int)
+     * @return used capacity
      */
     public int getUsed(){
         return used;
@@ -75,7 +75,7 @@ public class Edge{
 
     /**
      * Finds and returns residual capacity (max-used)
-     * @return residual capacity (int)
+     * @return residual capacity
      */
     public int findResidual(){
         return max-used;

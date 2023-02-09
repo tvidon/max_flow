@@ -57,7 +57,7 @@ public class Node{
     }
     /**
      * Getter for the index of this node in the adjacency matrix
-     * @return index of this node in the adjacency matrix (int)
+     * @return index of this node in the adjacency matrix
      */
     public int getIndex(){
         return index;
