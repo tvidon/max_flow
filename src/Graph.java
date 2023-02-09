@@ -1,6 +1,13 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.StringTokenizer;
 
 /**
  * Class representing a directional graph
@@ -36,6 +43,54 @@ public class Graph{
             }
             nodes.add(new Node(i));
         }
+    };
+    /**
+     * Contructor for when the graph is stored in a file
+     * @param path path to the file
+     */
+    public Graph(String path) throws IOException, IllegalArgumentException{
+        // reader
+        BufferedReader r = new BufferedReader(new FileReader(new File(path)));
+        try{
+            // size
+            r.readLine();
+            int size = Integer.parseInt(r.readLine());
+            mat = new ArrayList<>(size);
+            nodes = new ArrayList<>(size);
+            // adjacency matrix
+            r.readLine();
+            for (int i = 0; i < size; i++){
+                mat.add(new ArrayList<>(size));
+                StringTokenizer stElements = new StringTokenizer(r.readLine(), "\t");
+                for (int j = 0; j < size; j++){
+                    String element = stElements.nextToken();
+                    if (element.equals("null")){
+                        mat.get(i).add(null);
+                    }
+                    else{
+                        StringTokenizer stElement = new StringTokenizer(element, "/");
+                        int used = Integer.parseInt(stElement.nextToken());
+                        mat.get(i).add(new Edge(Integer.parseInt(stElement.nextToken())));
+                        mat.get(i).get(j).setUsed(used);
+                    }
+                }
+                nodes.add(new Node(i));
+            }
+            // nodes
+            r.readLine();
+            for (int i = 0; i < size; i++){
+                Node n = new Node(i);
+                nodes.add(n);
+                StringTokenizer stXY = new StringTokenizer(r.readLine(), ",");
+                n.setX(Integer.parseInt(stXY.nextToken()));
+                n.setY(Integer.parseInt(stXY.nextToken()));
+            }
+        }
+        catch (Exception e){
+            throw new IllegalArgumentException("Invalid file format");
+        }
+        // close
+        r.close();
     };
 
     /**
@@ -77,6 +132,32 @@ public class Graph{
             string += "\n";
         }
         return string.trim();
+    }
+
+    /**
+     * Save the grah to a file
+     * Deletes the content of the file if it already exists
+     * @param path path to the file to save the graph in
+     */
+    public void save(String path) throws IOException{
+        // create the file if it doesn't already exist
+        File f = new File(path);
+        f.createNewFile();
+        // writer
+        BufferedWriter w = new BufferedWriter(new FileWriter(f, false));
+        // number of nodes
+        w.write("// number of nodes\n");
+        w.write(mat.size() + "\n");
+        // adjacency matrix
+        w.write("// adjacency matrix\n");
+        w.write(this.toString() + "\n");
+        // nodes
+        w.write("// nodes (x,y)\n");
+        for (Node n : nodes){
+            w.write(n.getX() + "," + n.getY() + "\n");
+        }
+        // close
+        w.close();
     }
 
     /**
