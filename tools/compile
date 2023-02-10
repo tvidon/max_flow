@@ -1,2 +1,3 @@
 #!/bin/bash
-javac $project_root/src/* -d $project_root/bin
+javac $project_root/src/graph/* -d $project_root/bin
+javac $project_root/src/Main.java -d $project_root/bin

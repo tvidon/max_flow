@@ -1,3 +1,5 @@
+package graph;
+
 /**
  * Class representing a node in a graph for the Ford-Fulkerson algorithm
  */

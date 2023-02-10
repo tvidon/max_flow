@@ -1,3 +1,5 @@
+package graph;
+
 /**
  * Class representing an edge in a directional graph for the Ford-Fulkerson algorithm
  * Does not store the start and end nodes as this info is already in the adjacency matrix
