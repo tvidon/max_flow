@@ -1,0 +1,22 @@
+// number of nodes
+9
+// adjacency matrix
+null	0/30	0/30	0/20	null	null	null	null	null	
+null	null	null	null	0/20	0/20	null	null	null	
+null	null	null	null	0/20	0/20	null	null	null	
+null	null	null	null	0/20	0/20	null	null	null	
+null	null	null	null	null	null	0/10	null	null	
+null	null	null	null	null	null	null	0/60	null	
+null	null	null	null	null	null	null	null	0/30	
+null	null	null	null	null	null	0/20	null	0/50	
+null	null	null	null	null	null	null	null	null
+// nodes (x,y)
+0,0
+0,0
+0,0
+0,0
+0,0
+0,0
+0,0
+0,0
+0,0
