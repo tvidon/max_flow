@@ -4,7 +4,7 @@ package graph;
  * Class representing an edge in a directional graph for the Ford-Fulkerson algorithm
  * Does not store the start and end nodes as this info is already in the adjacency matrix
  */
-public class Edge{
+class Edge{
     
     /**
      * Maximum capacity of the edge
@@ -20,14 +20,14 @@ public class Edge{
     /**
      * Default constructor
      */
-    public Edge(){
+    Edge(){
         max = 1;
     };
     /**
      * Contructor for when the max capacity is already known
      * @param max maximum capacity of the edge
      */
-    public Edge(int max){
+    Edge(int max){
         if (max > 0){
             this.max = max;
         }
@@ -40,7 +40,7 @@ public class Edge{
      * Setter for max capacity
      * @param max max capacity
      */
-    public void setMax(int max){
+    void setMax(int max){
         if (max > 0){
             this.max = max;
         }
@@ -52,14 +52,14 @@ public class Edge{
      * Getter for max capacity
      * @return max capacity
      */
-    public int getMax(){
+    int getMax(){
         return max;
     }
     /**
      * Setter for used capacity
      * @param used used capacity
      */
-    public void setUsed(int used){
+    void setUsed(int used){
         if (0 <= used && used <= max){
             this.used = used;
         }
@@ -71,7 +71,7 @@ public class Edge{
      * Getter for used capacity
      * @return used capacity
      */
-    public int getUsed(){
+    int getUsed(){
         return used;
     }
 
@@ -79,7 +79,7 @@ public class Edge{
      * Finds and returns residual capacity (max-used)
      * @return residual capacity
      */
-    public int findResidual(){
+    int findResidual(){
         return max-used;
     }
 

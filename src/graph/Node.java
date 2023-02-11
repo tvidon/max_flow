@@ -3,7 +3,7 @@ package graph;
 /**
  * Class representing a node in a graph for the Ford-Fulkerson algorithm
  */
-public class Node{
+class Node{
     
     /**
      * Node that this was marked from during the Ford-Fulkerson algorithm
@@ -33,7 +33,7 @@ public class Node{
      * Constructor
      * @param index index of the node in the adjacency matrix
      */
-    public Node(int index){
+    Node(int index){
         this.index = index;
     };
 
@@ -41,63 +41,63 @@ public class Node{
      * Getter for x in the gui
      * @return the x
      */
-    public int getX(){
+    int getX(){
         return x;
     }
     /**
      * Getter for y in the gui
      * @return the y
      */
-    public int getY(){
+    int getY(){
         return y;
     }
     /**
      * Setter for x in the gui
      * @param x x in the gui
      */
-    public void setX(int x){
+    void setX(int x){
         this.x = x;
     }
     /**
      * Setter for y in the gui
      * @param y y in the gui
      */
-    public void setY(int y){
+    void setY(int y){
         this.y = y;
     }
     /**
      * Setter for source node for marking during the Ford-Fulkerson algorithm
      * @param node source node
      */
-    public void setFrom(Node node){
+    void setFrom(Node node){
         this.from = node;
     }
     /**
      * Getter for source node for marking during the Ford-Fulkerson algorithm
      * @return node from which this node was marked
      */
-    public Node getFrom(){
+    Node getFrom(){
         return from;
     }
     /**
      * Setter for the direction that the node was marked from
      * @param successor true if it was marked as a successor, false if it was marked as a predecessor
      */
-    public void setSuccessor(boolean successor){
+    void setSuccessor(boolean successor){
         this.successor = successor;
     }
     /**
      * Getter for the direction that the node was marked form
      * @return true if it was marked as a successor, false if it was marked as a predecessor
      */
-    public boolean getSuccessor(){
+    boolean getSuccessor(){
         return successor;
     }
     /**
      * Getter for the index of this node in the adjacency matrix
      * @return index of this node in the adjacency matrix
      */
-    public int getIndex(){
+    int getIndex(){
         return index;
     }
 }

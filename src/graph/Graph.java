@@ -76,7 +76,6 @@ public class Graph{
                         mat.get(i).get(j).setUsed(used);
                     }
                 }
-                nodes.add(new Node(i));
             }
             // nodes
             r.readLine();
@@ -96,6 +95,14 @@ public class Graph{
     };
 
     /**
+     * Get the number of nodes in the graph
+     * @return number of nodes in the graph
+     */
+    public int getSize(){
+        return mat.size();
+    }
+
+    /**
      * Add an edge to the graph
      * @param startNodeIndex index of the starting node
      * @param endNodeIndex index of the ending node
@@ -109,7 +116,7 @@ public class Graph{
      * Add a node to the graph
      */
     public void addNode(){
-        int size = mat.size();
+        int size = this.getSize();
         // resize the already existing columns
         for (int i = 0; i < size; i++){
             mat.get(i).add(null);
@@ -125,7 +132,7 @@ public class Graph{
 
     @Override
     public String toString(){
-        int size = mat.size();
+        int size = this.getSize();
         String string = "";
         for (int i = 0; i < size; i++){
             for (int j = 0; j < size; j++){
@@ -149,7 +156,7 @@ public class Graph{
         BufferedWriter w = new BufferedWriter(new FileWriter(f, false));
         // number of nodes
         w.write("// number of nodes\n");
-        w.write(mat.size() + "\n");
+        w.write(this.getSize() + "\n");
         // adjacency matrix
         w.write("// adjacency matrix\n");
         w.write(this.toString() + "\n");
@@ -170,7 +177,7 @@ public class Graph{
     public void ff(int sourceIndex, int sinkIndex){
         Node source = nodes.get(sourceIndex);
         Node sink = nodes.get(sinkIndex);
-        int size = mat.size();
+        int size = this.getSize();
         boolean optimal = false;
         while (!optimal){
             // reset marks
