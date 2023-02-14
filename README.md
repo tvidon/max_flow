@@ -2,6 +2,12 @@
 
 Java max flow finder using the Ford-Fulkerson algorithm.
 
+## features
+
+- Find the max flow in a graph using the Ford-Fulkerson algorithm
+- Load and save graphs in files
+- GUI
+
 ## build instructions (linux)
 
 ```
