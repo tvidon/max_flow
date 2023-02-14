@@ -17,6 +17,10 @@ public class MainFrame extends JFrame{
      * Loaded graph
      */
     private Graph graph;
+    /**
+     * Panel containing the graphical representation of the graph
+     */
+    private GraphicsPanel graphicsPanel;
 
     /**
      * Constructor for the main frame of the app
@@ -26,14 +30,28 @@ public class MainFrame extends JFrame{
         // base
         this.setTitle("max_flow");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1920, 1080);
-        this.setVisible(true);
 
         // menu bar
         MainMenuBar mainMenuBar = new MainMenuBar();
         this.setJMenuBar(mainMenuBar);
         mainMenuBar.findParent();
 
+        // graphics panel
+        graphicsPanel = new GraphicsPanel();
+        this.add(graphicsPanel);
+        graphicsPanel.findParent();
+
+        // display
+        this.pack();
+        this.setVisible(true);
+
+    }
+
+    /**
+     * Getter for the graph
+     */
+    Graph getGraph(){
+        return graph;
     }
 
     // File
@@ -70,6 +88,7 @@ public class MainFrame extends JFrame{
             file = fileDialog.getDirectory() + file;
             try{
                 graph = new Graph(file);
+                graphicsPanel.repaint();
             }
             catch (IOException e){
                 JOptionPane.showMessageDialog(this, "Error, could not load " + file);
@@ -113,6 +132,7 @@ public class MainFrame extends JFrame{
                 }
             }
             graph.ff(source, sink);
+            graphicsPanel.repaint();
         }
         else {
             JOptionPane.showMessageDialog(this, "No graph currently loaded, load one from the File menu");

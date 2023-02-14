@@ -96,10 +96,24 @@ public class Graph{
 
     /**
      * Get the number of nodes in the graph
-     * @return number of nodes in the graph
+     * @return the number of nodes in the graph
      */
     public int getSize(){
         return mat.size();
+    }
+    /**
+     * Get the adjacency matrix of the graph
+     * @return the adjacency matrix
+     */
+    public ArrayList<ArrayList<Edge>> getMat(){
+        return mat;
+    }
+    /**
+     * Get the list nodes of the graph
+     * @return the list of nodes
+     */
+    public ArrayList<Node> getNodes(){
+        return nodes;
     }
 
     /**
@@ -194,7 +208,7 @@ public class Graph{
                 Node nextNode;
                 int residualCapacity;
                 int usedCapacity;
-                // go through successorcs and predecessors
+                // go through successors and predecessors
                 for (int i=0; i<size; i++){
                     // successors
                     edge = mat.get(currentNode.getIndex()).get(i);
@@ -232,7 +246,7 @@ public class Graph{
                         }
                     }
                 }
-            } while (q.peek() != null & foundSink == false);
+            } while (q.peek() != null && foundSink == false);
             // increase if not optimal
             if (foundSink){
                 Node previousNode;

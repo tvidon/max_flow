@@ -11,12 +11,12 @@ null	null	null	null	null	null	null	null	0/30
 null	null	null	null	null	null	0/20	null	0/50	
 null	null	null	null	null	null	null	null	null
 // nodes (x,y)
-0,0
-0,0
-0,0
-0,0
-0,0
-0,0
-0,0
-0,0
-0,0
+100,540
+400,100
+400,540
+400,980
+700,100
+700,980
+1300,100
+1300,980
+1000,540

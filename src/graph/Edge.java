@@ -4,7 +4,7 @@ package graph;
  * Class representing an edge in a directional graph for the Ford-Fulkerson algorithm
  * Does not store the start and end nodes as this info is already in the adjacency matrix
  */
-class Edge{
+public class Edge{
     
     /**
      * Maximum capacity of the edge
@@ -52,7 +52,7 @@ class Edge{
      * Getter for max capacity
      * @return max capacity
      */
-    int getMax(){
+    public int getMax(){
         return max;
     }
     /**
@@ -71,7 +71,7 @@ class Edge{
      * Getter for used capacity
      * @return used capacity
      */
-    int getUsed(){
+    public int getUsed(){
         return used;
     }
 

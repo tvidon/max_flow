@@ -3,7 +3,7 @@ package graph;
 /**
  * Class representing a node in a graph for the Ford-Fulkerson algorithm
  */
-class Node{
+public class Node{
     
     /**
      * Node that this was marked from during the Ford-Fulkerson algorithm
@@ -41,14 +41,14 @@ class Node{
      * Getter for x in the gui
      * @return the x
      */
-    int getX(){
+    public int getX(){
         return x;
     }
     /**
      * Getter for y in the gui
      * @return the y
      */
-    int getY(){
+    public int getY(){
         return y;
     }
     /**
@@ -97,7 +97,7 @@ class Node{
      * Getter for the index of this node in the adjacency matrix
      * @return index of this node in the adjacency matrix
      */
-    int getIndex(){
+    public int getIndex(){
         return index;
     }
 }
