@@ -112,10 +112,18 @@ public class MainFrame extends JFrame{
                     if (input < 0 || input > maxIndex){
                         throw new NumberFormatException();
                     }
+                    for (int i = 0; i < graph.getSize(); i++){
+                        if (graph.getMat().get(i).get(input) != null) {
+                            throw new IllegalArgumentException();
+                        }
+                    }
                     source = input;
                 }
                 catch (NumberFormatException e){
                     JOptionPane.showMessageDialog(this, "This node does not exist, please pick a number between 0 and " + maxIndex);
+                }
+                catch (IllegalArgumentException e){
+                    JOptionPane.showMessageDialog(this, "Source node must have no edges pointing towards it");
                 }
             }
             int sink = -1;
@@ -125,10 +133,18 @@ public class MainFrame extends JFrame{
                     if (input < 0 || input > maxIndex){
                         throw new NumberFormatException();
                     }
+                    for (Object edge : graph.getMat().get(input)){
+                        if (edge != null){
+                            throw new IllegalArgumentException();
+                        }
+                    }
                     sink = input;
                 }
                 catch (NumberFormatException e){
                     JOptionPane.showMessageDialog(this, "This node does not exist, please pick a number between 0 and " + maxIndex);
+                }
+                catch (IllegalArgumentException e){
+                    JOptionPane.showMessageDialog(this, "Sink node must have no edges coming out of it");
                 }
             }
             graph.ff(source, sink);
