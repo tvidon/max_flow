@@ -185,8 +185,8 @@ public class Graph{
 
     /**
      * Run the Ford-Fulkerson algorithm
-     * @param source source node index in the adjancency matrix
-     * @param sink sink node index in the adjacency matrix
+     * @param sourceIndex source node index in the adjancency matrix
+     * @param sinkIndex sink node index in the adjacency matrix
      */
     public void ff(int sourceIndex, int sinkIndex){
         Node source = nodes.get(sourceIndex);
