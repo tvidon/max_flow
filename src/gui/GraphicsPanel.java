@@ -6,6 +6,8 @@ import graph.Node;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import java.util.ArrayList;
@@ -13,18 +15,34 @@ import java.util.ArrayList;
 /**
  * Class for the panel containing the graphical representation of the graph
  */
-class GraphicsPanel extends JPanel{
+class GraphicsPanel extends JPanel implements MouseListener{
 
     /**
-     * main frame
+     * Main frame
      */
     private MainFrame mainFrame;
+    /**
+     * Placement mode indicates whether the user should be able to click to place nodes
+     */
+    private boolean placementMode;
+    /**
+     * Counter for the number of placed nodes during placement mode
+     */
+    private int nodesPlaced;
 
     /**
      * Constructor for the graphics panel
      */
     GraphicsPanel(){
         this.setPreferredSize(new Dimension(1920, 1080));
+        this.addMouseListener(this);
+    }
+
+    /**
+     * Activate placement mode
+     */
+    void activatePlacementMode(){
+        placementMode = true;
     }
 
     /**
@@ -33,6 +51,29 @@ class GraphicsPanel extends JPanel{
     void findParent(){
         mainFrame = (MainFrame) SwingUtilities.getWindowAncestor(this);
     }
+
+    /**
+     * Place node on mouse click
+     * Enabled by the newGraph() method of MainFrame
+     */
+    public void mouseClicked(MouseEvent e){
+        if (placementMode){
+            mainFrame.getGraph().addNode();
+            mainFrame.getGraph().getNodes().get(nodesPlaced).setX(e.getX());
+            mainFrame.getGraph().getNodes().get(nodesPlaced).setY(e.getY());
+            nodesPlaced++;
+            this.repaint();
+            if (nodesPlaced == mainFrame.getGraph().getSize()){
+                placementMode = false;
+                nodesPlaced = 0;
+                mainFrame.startEdgeAdder();
+            }
+        }
+    }
+    public void mousePressed(MouseEvent e){}
+    public void mouseReleased(MouseEvent e){}
+    public void mouseEntered(MouseEvent e){}
+    public void mouseExited(MouseEvent e){}
 
     /**
      * Paint the graphics

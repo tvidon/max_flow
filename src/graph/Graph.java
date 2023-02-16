@@ -43,7 +43,6 @@ public class Graph{
             for (int j = 0; j < size; j++){
                 mat.get(i).add(null);
             }
-            nodes.add(new Node(i));
         }
     };
     /**
@@ -127,21 +126,10 @@ public class Graph{
     }
 
     /**
-     * Add a node to the graph
+     * Add a node to the graph (only if the list of array list of nodes isn't full)
      */
     public void addNode(){
-        int size = this.getSize();
-        // resize the already existing columns
-        for (int i = 0; i < size; i++){
-            mat.get(i).add(null);
-        }
-        // add the new columns
-        mat.add(new ArrayList<>(size+1));
-        for (int j = 0; j < size+1; j++){
-            mat.get(size).add(null);
-        }
-        // add the node
-        nodes.add(new Node(size));
+        nodes.add(new Node(nodes.size()));
     }
 
     @Override

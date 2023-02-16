@@ -19,6 +19,10 @@ class MainMenuBar extends JMenuBar implements ActionListener{
     private MainFrame mainFrame;
 
     /**
+     * new option in the menu
+     */
+    private JMenuItem newItem;
+    /**
      * load option in the menu
      */
     private JMenuItem loadItem;
@@ -44,14 +48,17 @@ class MainMenuBar extends JMenuBar implements ActionListener{
         
         JMenu fileMenu = new JMenu("File");
 
+        newItem = new JMenuItem("New");
         loadItem = new JMenuItem("Load");
         saveItem = new JMenuItem("Save");
         exitItem = new JMenuItem("Exit");
 
+        newItem.addActionListener(this);
         loadItem.addActionListener(this);
         saveItem.addActionListener(this);
         exitItem.addActionListener(this);
 
+        fileMenu.add(newItem);
         fileMenu.add(loadItem);
         fileMenu.add(saveItem);
         fileMenu.add(exitItem);
@@ -84,6 +91,9 @@ class MainMenuBar extends JMenuBar implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
         // File menu
+        if(e.getSource() == newItem){
+            mainFrame.newGraph();
+        }
         if(e.getSource() == loadItem){
             mainFrame.load();
         }

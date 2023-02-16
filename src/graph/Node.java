@@ -33,7 +33,7 @@ public class Node{
      * Constructor
      * @param index index of the node in the adjacency matrix
      */
-    Node(int index){
+    public Node(int index){
         this.index = index;
     };
 
@@ -55,14 +55,14 @@ public class Node{
      * Setter for x in the gui
      * @param x x in the gui
      */
-    void setX(int x){
+    public void setX(int x){
         this.x = x;
     }
     /**
      * Setter for y in the gui
      * @param y y in the gui
      */
-    void setY(int y){
+    public void setY(int y){
         this.y = y;
     }
     /**
