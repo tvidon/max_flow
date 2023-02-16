@@ -62,7 +62,13 @@ public class MainFrame extends JFrame{
         int numberOfEdges = -1;
         while (numberOfEdges < 0){
             try{
-                int input = Integer.parseInt(JOptionPane.showInputDialog(this, "Number of edges"));
+                String inputString = JOptionPane.showInputDialog(this, "Number of edges");
+                if (inputString == null){
+                    graph = null;
+                    graphicsPanel.repaint();
+                    return;
+                }
+                int input = Integer.parseInt(inputString);
                 if (input < 0){
                     throw new IllegalArgumentException();
                 }
@@ -83,7 +89,13 @@ public class MainFrame extends JFrame{
             while (alreadyExists){
                 while (startNodeIndex == -1){
                     try{
-                        int input = Integer.parseInt(JOptionPane.showInputDialog(this, "Edge " + (i + 1) + " out of " + numberOfEdges + "\nPick the start node"));
+                        String inputString = JOptionPane.showInputDialog(this, "Edge " + (i + 1) + " out of " + numberOfEdges + "\nPick the start node");
+                        if (inputString == null){
+                            graph = null;
+                            graphicsPanel.repaint();
+                            return;
+                        }
+                        int input = Integer.parseInt(inputString);
                         if (input < 0 || input > maxIndex){
                             throw new NumberFormatException();
                         }
@@ -95,7 +107,13 @@ public class MainFrame extends JFrame{
                 }
                 while (endNodeIndex == -1){
                     try{
-                        int input = Integer.parseInt(JOptionPane.showInputDialog(this, "Edge " + (i + 1) + " out of " + numberOfEdges + "\nPick the end node"));
+                        String inputString = JOptionPane.showInputDialog(this, "Edge " + (i + 1) + " out of " + numberOfEdges + "\nPick the end node");
+                        if (inputString == null){
+                            graph = null;
+                            graphicsPanel.repaint();
+                            return;
+                        }
+                        int input = Integer.parseInt(inputString);
                         if (input < 0 || input > maxIndex){
                             throw new NumberFormatException();
                         }
@@ -117,7 +135,13 @@ public class MainFrame extends JFrame{
             int capacity = -1;
             while (capacity == -1){
                 try{
-                    int input = Integer.parseInt(JOptionPane.showInputDialog(this, "Edge " + (i + 1) + " out of " + numberOfEdges + "\nChoose a capacity"));
+                    String inputString = JOptionPane.showInputDialog(this, "Edge " + (i + 1) + " out of " + numberOfEdges + "\nChoose a capacity");
+                    if (inputString == null){
+                        graph = null;
+                        graphicsPanel.repaint();
+                        return;
+                    }
+                    int input = Integer.parseInt(inputString);
                     if (input < 1){
                         throw new NumberFormatException();
                     }
@@ -143,7 +167,11 @@ public class MainFrame extends JFrame{
         int numberOfNodes = 0;
         while(numberOfNodes < 2){
             try{
-                int input = Integer.parseInt(JOptionPane.showInputDialog(this, "Number of nodes"));
+                String inputString = JOptionPane.showInputDialog(this, "Number of nodes");
+                if (inputString == null){
+                    return;
+                }
+                int input = Integer.parseInt(inputString);
                 if (input < 2){
                     throw new IllegalArgumentException();
                 }
@@ -214,7 +242,11 @@ public class MainFrame extends JFrame{
             int source = -1;
             while (source == -1){
                 try{
-                    int input = Integer.parseInt(JOptionPane.showInputDialog(this, "Pick the source node", 0));
+                    String inputString = JOptionPane.showInputDialog(this, "Pick the source node", 0);
+                    if (inputString == null){
+                        return;
+                    }
+                    int input = Integer.parseInt(inputString);
                     if (input < 0 || input > maxIndex){
                         throw new NumberFormatException();
                     }
@@ -235,7 +267,11 @@ public class MainFrame extends JFrame{
             int sink = -1;
             while (sink == -1){
                 try{
-                    int input = Integer.parseInt(JOptionPane.showInputDialog(this, "Pick the sink node", maxIndex));
+                    String inputString = JOptionPane.showInputDialog(this, "Pick the sink node", maxIndex);
+                    if (inputString == null){
+                        return;
+                    }
+                    int input = Integer.parseInt(inputString);
                     if (input < 0 || input > maxIndex){
                         throw new NumberFormatException();
                     }
