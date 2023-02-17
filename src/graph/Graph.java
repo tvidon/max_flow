@@ -181,6 +181,35 @@ public class Graph{
         Node sink = nodes.get(sinkIndex);
         int size = this.getSize();
         boolean optimal = false;
+        // check flow conservation on starting flow
+        for (int i = 0; i < size; i++){
+            if (i != sourceIndex && i != sinkIndex){
+                int in = 0;
+                int out = 0;
+                for (int j = 0; j < size; j++){
+                    Edge e = this.getMat().get(j).get(i);
+                    if (e != null){
+                        in += e.getUsed();
+                    }
+                    e = this.getMat().get(i).get(j);
+                    if (e != null){
+                        out += e.getUsed();
+                    }
+                }
+                if (in != out){
+                    // reset used capacities
+                    for (int j = 0; j < size; j++){
+                        for (Edge e : this.getMat().get(j)){
+                            if (e != null){
+                                e.setUsed(0);
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+        // Ford-Fulkerson
         while (!optimal){
             // reset marks
             for (Node node : nodes){
