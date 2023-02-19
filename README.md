@@ -13,6 +13,8 @@ Java max flow finder using the Ford-Fulkerson algorithm.
 
 ## build instructions (linux)
 
+Tested with `openjdk 19.0.2`
+
 ```
 cd max_flow
 source ./tools/source_me
